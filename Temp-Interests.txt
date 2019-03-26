@@ -1,0 +1,364 @@
+DoInterest1Right:
+    FindInterest()
+    Interest1 = Interest
+    Interest1Item = InterestItem
+
+DoInterest2Right:
+    FindInterest()
+    If InterestItem <> Interest1Item then
+        Interest2 = Interest
+        Interest2Item = InterestItem
+    else
+        goto DoInterest2Right
+    end if
+
+If Interest2 = Interest1 then Interest2 = ""
+
+end sub
+
+Sub FindInterest()
+TryInterestAgain:
+Randomize
+a = Int(Rnd * 20) + 1
+	if a = 1 then
+		Interest = "Video Games"
+			Randomize
+			b = Int(Rnd * 12) + 1
+				if b = 1 then InterestItem = "Metroid Prime"
+				if b = 2 then InterestItem = "Mario Figurine"
+				if b = 3 then InterestItem = "Minecraft"
+				if b = 4 then InterestItem = "Castlevania"
+				if b = 5 then InterestItem = "The Orange Box"
+				if b = 6 then InterestItem = "Portal"
+				if b = 7 then InterestItem = "Shitty Roguelike burned to CD"
+				if b = 8 then InterestItem = "Sonic Plushtoy"
+				if b = 9 then InterestItem = "Eversion"
+				if b = 10 then InterestItem = "Princess Maker"
+				if b = 11 then InterestItem = "Doom 95"
+				if b = 12 then InterestItem = "Zelda"
+	end if
+	if a = 2 then
+		Interest = "Cooking"
+			Randomize
+			b = Int(Rnd * 6) + 1
+				if b = 1 then InterestItem = "Saucepan"
+				if b = 2 then InterestItem = "Hot Sauce"
+				if b = 3 then InterestItem = "Cooking For Dummies"
+				if b = 4 then InterestItem = "Toaster"
+				if b = 5 then InterestItem = "Cooking Grease"
+				if b = 6 then InterestItem = "Ice Cream"
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 3 then
+		Interest = "Botany"
+			Randomize
+			b = Int(Rnd * 6) + 1
+				if b = 1 then InterestItem = "Fertilizer"
+				if b = 2 then InterestItem = "Pumpkin"
+				if b = 3 then InterestItem = "Amorphophallus Titanum"
+				if b = 4 then InterestItem = "Venus Fly Trap"
+				if b = 5 then InterestItem = "Tree Branch"
+				if b = 6 then InterestItem = "Watering Can"
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 4 then
+		Interest = "Art"
+			Randomize
+			b = Int(Rnd * 6) + 1
+				if b = 1 then InterestItem = "Paintbrush"
+				if b = 2 then InterestItem = "Charcoal"
+				if b = 3 then InterestItem = "Pencil"
+				if b = 4 then InterestItem = "Creepy Figurine"
+				if b = 5 then InterestItem = "MC Escher Picture"
+				if b = 6 then InterestItem = "Giger Painting"
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 5 then
+		Interest = "Grimdark Arts"
+			Randomize
+			b = Int(Rnd * 6) + 1
+				if b = 1 then InterestItem = "Summoning Grimoire"
+				if b = 2 then InterestItem = "Vial of your own blood"
+				if b = 3 then InterestItem = "Creepy Figurine"
+				if b = 4 then InterestItem = "Lovecraftian Novel"
+				if b = 5 then InterestItem = "Incense Holder"
+				if b = 6 then InterestItem = "Ectoplasm"
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 6 then
+		Interest = "Biology"
+			Randomize
+			b = Int(Rnd * 7) + 1
+				if b = 1 then InterestItem = "Protein"
+				if b = 2 then InterestItem = "Crab Claw"
+				if b = 3 then InterestItem = "Genetic Horror"
+				if b = 4 then InterestItem = "Hazardous Chemicals"
+				if b = 5 then InterestItem = "Hologram of your own brain"
+				if b = 6 then InterestItem = "Fetus in a jar"
+				if b = 7 then InterestItem = "Taxidermied creature"
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 7 then
+		Interest = "Collectibles"
+			Randomize
+			b = Int(Rnd * 9) + 1
+				if b = 1 then InterestItem = "Sonic Screwdriver"
+				if b = 2 then InterestItem = "Replica Lightsabre"
+				if b = 3 then InterestItem = "Tardis"
+				if b = 4 then InterestItem = "Dalek Figurine"
+				if b = 5 then InterestItem = "Miniature Stargate"
+				if b = 6 then InterestItem = "Spock Poster"
+				if b = 7 then InterestItem = "Transformer Action Figure"
+				if b = 8 then InterestItem = "Millenium Falcon"
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 8 then
+		Interest = "Science"
+			Randomize
+			b = Int(Rnd * 6) + 1
+				if b = 1 then InterestItem = "Tesla Coil"
+				if b = 2 then InterestItem = "Fusion Reactor"
+				if b = 3 then InterestItem = "Newton's Cradle"
+				if b = 4 then InterestItem = "Steampunk Novel"
+				if b = 5 then InterestItem = "Carbon Nanotube"
+				if b = 6 then InterestItem = "Vial of Mercury"
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 9 then
+		Interest = "Geology"
+			Randomize
+			b = Int(Rnd * 7) + 1
+				if b = 1 then InterestItem = "Obsidian Stone"
+				if b = 2 then InterestItem = "Meteorite"
+				if b = 3 then InterestItem = "Diamond"
+				if b = 4 then InterestItem = "Geode"
+				if b = 5 then InterestItem = "Gold Leaf"
+				if b = 6 then InterestItem = "Interesting Stones"
+				if b = 7 then InterestItem = "Archvillainy 101 Handbook"
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 10 then
+		Interest = "Engineering"
+			Randomize
+			b = Int(Rnd * 4) + 1
+				if b = 1 then InterestItem = "Car Engine"
+				if b = 2 then InterestItem = "Plane Replica"
+				if b = 3 then InterestItem = "Car Battery"
+				if b = 4 then InterestItem = "Model Skyscraper"
+'				if b = 5 then InterestItem = ""
+'				if b = 6 then InterestItem = ""
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 11 then
+		Interest = "Frivolity"
+			Randomize
+			b = Int(Rnd * 12) + 1
+				if b = 1 then InterestItem = "Wizard Hat"
+				if b = 2 then InterestItem = "Can-of-worms"
+				if b = 3 then InterestItem = "Creepy Doll"
+				if b = 4 then InterestItem = "Trick Cards"
+				if b = 5 then InterestItem = "Whoopie Cushion"
+				if b = 6 then InterestItem = "Smoke Pellets"
+				if b = 7 then InterestItem = "Fake Blood Capsules"
+				if b = 8 then InterestItem = "Sassacre's Daunting Tome"
+				if b = 9 then InterestItem = "Magician's Gloves"
+				if b = 10 then InterestItem = "Clown Poster"
+				if b = 11 then InterestItem = "Unicycle"
+				if b = 12 then InterestItem = "Jack-in-the-Box"
+	end if
+	if a = 12 then
+		Interest = "Archaeology"
+			Randomize
+			b = Int(Rnd * 7) + 1
+				if b = 1 then InterestItem = "Suit of Armor"
+				if b = 2 then InterestItem = "Mummy"
+				if b = 3 then InterestItem = "Sarcophagus"
+				if b = 4 then InterestItem = "Jade figurine"
+				if b = 5 then InterestItem = "Indiana Jones Movie"
+				if b = 6 then InterestItem = "Dragon Figurine"
+				if b = 7 then InterestItem = "Toy Soldiers"
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 13 then
+		Interest = "Literature"
+			Randomize
+			b = Int(Rnd * 3) + 1
+				if b = 1 then InterestItem = "Midsummer Night's Dream"
+				if b = 2 then InterestItem = "The Alchemist"
+				if b = 3 then InterestItem = "Chinese Haikus of Little Historical Significance"
+'				if b = 4 then InterestItem = ""
+'				if b = 5 then InterestItem = ""
+'				if b = 6 then InterestItem = ""
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 14 then
+		Interest = "Immaturity"
+			Randomize
+			b = Int(Rnd * 4) + 1
+				if b = 1 then InterestItem = "Push-me Popper"
+				if b = 2 then InterestItem = "Teddy Bear"
+				if b = 3 then InterestItem = "Play Doh"
+				if b = 4 then InterestItem = "Bouncy Ball"
+'				if b = 5 then InterestItem = ""
+'				if b = 6 then InterestItem = ""
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 15 then
+		Interest = "Sports"
+			Randomize
+			b = Int(Rnd * 5) + 1
+				if b = 1 then InterestItem = "Football"
+				if b = 2 then InterestItem = "Baseball Glove"
+				if b = 3 then InterestItem = "Hockey Stick"
+				if b = 4 then InterestItem = "Tennis Racket"
+				if b = 5 then InterestItem = "Soccer Ball"
+'				if b = 6 then InterestItem = ""
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 16 then
+		Interest = "Warfare"
+			Randomize
+			b = Int(Rnd * 4) + 1
+				if b = 1 then InterestItem = "Model Tank"
+				if b = 2 then InterestItem = "Ghillie Suit"
+				if b = 3 then InterestItem = "Night-vision Goggles"
+				if b = 4 then InterestItem = "Empty Magazine"
+'				if b = 5 then InterestItem = ""
+'				if b = 6 then InterestItem = ""
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 17 then
+		Interest = "Gambling"
+			Randomize
+			b = Int(Rnd * 3) + 1
+				if b = 1 then InterestItem = "Playing Cards"
+				if b = 2 then InterestItem = "Poker Chips"
+				if b = 3 then InterestItem = "Roulette Wheel"
+'				if b = 4 then InterestItem = ""
+'				if b = 5 then InterestItem = ""
+'				if b = 6 then InterestItem = ""
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 18 then
+		Interest = "Knick Knacks"
+			Randomize
+			b = Int(Rnd * 6) + 1
+				if b = 1 then InterestItem = "Snow Globe"
+				if b = 2 then InterestItem = "Lava Lamp"
+				if b = 3 then InterestItem = "Miniature Eiffel Tower"
+				if b = 4 then InterestItem = "Plasma Globe"
+				if b = 5 then InterestItem = "Music Box"
+				if b = 6 then InterestItem = "Fancy Santa"
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 19 then
+		Interest = "Paleontology"
+			Randomize
+			b = Int(Rnd * 5) + 1
+				if b = 1 then InterestItem = "Fossilized Dinosaur Skin"
+				if b = 2 then InterestItem = "Preserved Amber"
+				if b = 3 then InterestItem = "Ammonite Shell"
+				if b = 4 then InterestItem = "T-Rex Tooth"
+				if b = 5 then InterestItem = "Footprint Fossil"
+'				if b = 6 then InterestItem = ""
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+	if a = 20 then
+		Interest = "Meta"
+			Randomize
+			b = Int(Rnd * 5) + 1
+				if b = 1 then InterestItem = "SBaHJ Poster"
+				if b = 2 then InterestItem = "Con-Air Bunny"
+				if b = 3 then InterestItem = "Cool Horse Painting"
+				if b = 4 then InterestItem = "Problem Sleuth Poster"
+				if b = 5 then InterestItem = "Sepulchritude Shirt"
+'				if b = 6 then InterestItem = ""
+'				if b = 7 then InterestItem = ""
+'				if b = 8 then InterestItem = ""
+'				if b = 9 then InterestItem = ""
+'				if b = 10 then InterestItem = ""
+'				if b = 11 then InterestItem = ""
+'				if b = 12 then InterestItem = ""
+	end if
+
+end sub

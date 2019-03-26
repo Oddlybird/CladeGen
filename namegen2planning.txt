@@ -1,0 +1,126 @@
+sample names constructed:
+havuni, unugey, jlunaf, vnohgo, amuyaa, humafs, fuziyo, xampot, cmelaz, nojura, mopiti, yejiro, riseif, jeyazo, xayene, pennez, yehuoh, kimhou, ruzieh.
+
+bluh. fuck this.
+=======================================================
+fuckgender
+
+1st Names: 
+VLV LVV, VLV SVV, VLV SVL, LVV LVL, LVV LVF, LVF VVF, LVS VLVx2
+LVS VSV, FVL VFF, FVL LVS, FVF VLV, FLV FSV,
+SVL VLV, SVL VFV, SVL VLV, SVL LVL
+SVL LVF, SVL FVV, SVL SVS, SVL SLV,
+SVF LVF
+SLV LVF
+
+Last Names(F):
+LVS VSV, LVV FVL, LVL LVL, SVL VSV, FVL SVS, SVV SVF
+LVS LVL, SVS SVL, FVL SVF, FVF FVS, LVS VLV, VLS VLV
+
+
+vowels:	AEIOU	 v
+liquid:	LMNRY	 l
+fric:	FHSVZ	 f
+stop: 	CDGKPTXJ s
+
+=======================================================
+
+1st Names(F): 
+VLV SVV, VLV LVV, LVV LVL, LVV LVF, LVS VLV, LVS VSV
+FLV FSV, FVF VLV, SVL VLV, SVL VFV, SVL VLV, SVL LVL
+Last Names(F):
+LVS VSV, LVV FVL, LVL LVL, SVL VSV, FVL SVS, SVV SVF
+
+1st Names(M): 
+SVF LVF, FVL LVS, SVL SVS, SVL FVV, VLV SVL, -
+LVF VVF, LVS VLV, SVL SLV, FVL VFF, SVL LVF, SLV LVF
+Last Names(M):
+LVS LVL, SVS SVL, FVL SVF, FVF FVS, LVS VLV, VLS VLV
+
+
+vowels:	AEIOU	v
+liquid:	LMNRY	l
+fric:	FHSVZJ	f
+stop: 	CDGKPTX	s
+=======================================================
+=======================================================
+=======================================================
+=======================================================
+-alpha--struct---beta---struct--last---struct-
+Aradia	VLVSVV	Damara	SVLVLV	Megido	LVSVSV
+Nepeta	LVSVSV	Meulin	LVVLVL	Leijon	LVVFVL
+Kanaya	SVLVLV	Porrim	SVLLVL	Maryam	LVLLVL
+Terezi	SVLVFV	Latula	LVSVLV	Pyrope	SVLVSV
+Vriska	FLVFSV	Aranea	VLVLVV	Serket	FVLSVS
+Feferi	FVFVLV	Meenah	LVVLVF	Peixes	SVVSVF
+-alpha--struct---beta---struct--last---struct-
+Tavros	SVFLVF	Rufioh	LVFVVF	Nitram	LVSLVL
+Sollux	FVLLVS	Mituna	LVSVLV	Captor	SVSSVL
+Karkat	SVLSVS	Kankri	SVLSLV	Vantas	FVLSVF
+Equius	------	Horuss	FVLVFF	Zahhak	FVFFVS
+Gamzee	SVLFVV	Kurloz	SVLLVF	Makara	LVSVLV
+Eridan	VLVSVL	Cronus	SLVLVF	Ampora	VLSVLV
+-alpha--struct---beta---struct--last---struct-
+
+vowels:	AEIOU	v
+stop: 	CDGKPTX	s
+fric:	FHSVZJ	f
+liquid:	LMNRY	l
+
+=======================================================
+=======================================================
+=======================================================
+====================================
+Last Names: CVC-CVC [FFMMMM], CV-CV-CV [FFM], VC-CV-CV [M]
+N Names: CV-CV-CV[FFFFFFFFMM], CVC-CVC [FFFFMMMMMMMM], CVV-CVC[FMM]
+M names: V-CV-CVC, CVC-CVV, CVC-VVC, CVC-VCC, CCV-CVC, CVC-CCV
+F Names: CCV-CCV, V-CV-CVV
+
+
+CVC....}.,...
+CV..........
+VC.
+CVV.,
+V..
+VVC.
+VCC.
+CCV..,,
+
+each syllable has two forms based on whether a consonant or vowel follows
+-- have a list for general consonants, stops, and fluids?
+====================================
+Last Names: CVC-CVC [FFMMMM], CV-CV-CV [FFM], VC-CV-CV [M]
+N Names: CV-CV-CV[FFFFFFFFMM], CVC-CVC [FFFFMMMMMMMM], CVV-CVC[FMM]
+M names: V-CVV-VC, V-CV-CVC, CVC-CVV, CVC-VVC, CVC-VCC, CCV-CVC, CVC-CCV
+F Names: CCV-CCV, V-CV-CVV
+====================================
+	Female	Male	Last
+VCVVVC -	A	
+VCVCVV - AB		
+VCVCVC - 	A	
+VCCVCV - 		M
+CVVCVC - B		FF
+CVCVVC - 	B	
+CVCVCV - AAAABB	B	FFM
+CVCVCC - 	B	
+CVCCVV -	A	
+CVCCVC - BB	AAAB	FFMMMM
+CCVCVC - 	B	
+CVCCCV - 	B	
+CCVCCV - A		
+===================================
+-alpha--struct---beta---struct--last---struct-
+Aradia	VCVCVV	Damara	CVCVCV	Megido	CVCVCV
+Nepeta	CVCVCV	Meulin	CVVCVC	Leijon	CVVCVC
+Kanaya	CVCVCV	Porrim	CVCCVC	Maryam	CVCCVC
+Terezi	CVCVCV	Latula	CVCVCV	Pyrope	CVCVCV
+Vriska	CCVCCV	Aranea	VCVCVV	Serket	CVCCVC
+Feferi	CVCVCV	Meenah	CVVCVC	Peixes	CVVCVC
+-alpha--struct---beta---struct--last---struct-
+Tavros	CVCCVC	Rufioh	CVCVVC	Nitram	CVCCVC
+Sollux	CVCCVC	Mituna	CVCVCV	Captor	CVCCVC
+Karkat	CVCCVC	Kankri	CVCCCV	Vantas	CVCCVC
+Equius	VCVVVC	Horuss	CVCVCC	Zahhak	CVCCVC
+Gamzee	CVCCVV	Kurloz	CVCCVC	Makara	CVCVCV
+Eridan	VCVCVC	Cronus	CCVCVC	Ampora	VCCVCV
+-alpha--struct---beta---struct--last---struct-

@@ -1,0 +1,430 @@
+#ifndef NAMEGEN_H
+#define NAMEGEN_H
+
+// Header shit goes here : Structs and globals.
+// Reva Cork, since apparently I need to sign shit, 2012-07-something.
+#include <cstdlib>
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <sstream>
+#include <stdio.h>
+#include <ctype.h>
+using namespace std;
+
+class namegenerator {
+      public:
+             namegenerator();      // constructor
+             namegenerator( int ); // construct it, and set typicality while you're at it
+             ~namegenerator();     // destructor
+             struct word {
+                        string text;
+                        string structure;
+                        int length;
+                        int numsyl;
+                        // a SYLLABLE has structure V,CV,VC,CVC,CVV,CCVC, or "empty", numsyl = 1, & length <=4
+                        // a NAME has any structure, nymsyl <= 6, length <=6
+             };
+             word trollname[6];
+             word finalname;
+             string makename();
+             int namedone;   // Controls a while loop
+             int nameOK;     // controls a while loop
+             int selector;   // Is used to select syllable types and letters; can be modified by typicality
+             int typicality; // The less common options are at the end of the random-selection lists, which have no lower bound.  A function will subtract this number from random selection lists, which use the selector variable.  Try between 0 and 10.
+             string getsyllablestructure();
+             string getV1();
+             string getV2();
+             string getV3();
+             string getV4();
+             string getconsonantCV();
+             string getconsonantCVC();
+             string getconsonant();
+             string getclusteroftwo();
+             void UpdateFinalName();
+             void clearnames();
+             int TypicalityFunction(int a);
+      private:
+               // privates
+};
+
+namegenerator::namegenerator() {
+             namedone = 0;   // Controls a while loop
+             nameOK = 0;     // controls a while loop
+             selector = 0;   // Is used to select syllable types and letters; can be modified by typicality
+             typicality = 10; // The less common options are at the end of the random-selection lists, which have no lower bound.  A function will subtract this number from random selection lists, which use the selector variable.  Try between 0 and 10.
+             clearnames();
+             }
+
+namegenerator::namegenerator( int typicality ) {
+	// this will let us make a class and init the variables with values the user feeds in.
+    namedone = 0;   // Controls a while loop
+    nameOK = 0;     // controls a while loop
+    selector = 0;   // Is used to select syllable types and letters; can be modified by typicality
+	this->typicality = typicality;
+    clearnames();
+    }
+
+namegenerator::~namegenerator() {
+                                 // DESTRUCTOR!
+                                 }
+
+string namegenerator::getsyllablestructure()
+{
+      string structure;
+      // Modify selector to select only sufficiently short syllable structures
+      // ie: If the name is 4 letters long, it will select syllables of length 2 or less
+      if (finalname.length == 5) {selector = 5;};
+      if (finalname.length == 4) {selector = 34;};
+      if (finalname.length == 3) {selector = 60;};
+      if (finalname.length < 3)  {selector = 61;};
+      // selector is now the maximum length-appropriate value.
+      if (selector==5) {selector = rand() % (selector) + 1;};      // Choose a number between 1 and the above value
+      if (selector>5)  {selector = rand() % (selector) + 5;};      // ...but avoid single vowels where possible.
+      if (selector>56) {selector = TypicalityFunction(selector);}; // Modify one last time for typicality, avoid V and clusters
+
+      if (selector <= 5)                       {structure = "V";};
+      if ((selector > 5)  && (selector <= 31)) {structure = "CV";};
+      if ((selector > 31) && (selector <= 34)) {structure = "VC";};
+      if ((selector > 34) && (selector <= 56)) {structure = "CVC";};
+      if ((selector > 56) && (selector <= 60)) {structure = "CVV";};
+      if (selector > 60)                       {structure = "CCVC";};
+
+      // Sometimes, this produces a name of length 5, whose last two letters are vowels.
+      // to avoid six-letter names with three final vowels, avoid that situation:
+      // ... unfortunately this does not work.  Somehow.  ????
+      if ((finalname.length == 2) and (structure=="CVV")) {structure = "CVC";};
+
+      return structure;
+}
+
+string namegenerator::getV1()
+{
+// This is used in syllable patterns:  V, VC, CCVC
+// Consider it to be the default vowel pattern.
+     int x;
+     x = rand() % (73) + 1;
+     string letter = "";
+     if (x <= 27)               {letter = "a";};
+     if ((x > 27) && (x <= 47)) {letter = "e";};
+     if ((x > 47) && (x <= 58)) {letter = "i";};
+     if ((x > 58) && (x <= 65)) {letter = "o";};
+     if ((x > 65) && (x <= 72)) {letter = "u";};
+     if (x > 72)                {letter = "y";};
+     return letter;
+}
+
+string namegenerator::getV2()
+{
+// This is used in syllable pattern CV
+     int x;
+     x = rand() % (38) + 1;
+     string letter = "";
+     if (x <= 15)               {letter = "a";};
+     if ((x > 15) && (x <= 26)) {letter = "e";};
+     if ((x > 26) && (x <= 32)) {letter = "i";};
+     if ((x > 32) && (x <= 36)) {letter = "o";};
+     if ((x > 36) && (x <= 37)) {letter = "u";};
+     if (x > 37)                {letter = "y";};
+     return letter;
+}
+
+string namegenerator::getV3()
+{
+// This is used in syllable pattern CVC
+     int x;
+     x = rand() % (105) + 1;
+     string letter = "";
+     if (x <= 50)                {letter = "a";};
+     if ((x > 50) && (x <= 75))  {letter = "e";};
+     if ((x > 75) && (x <= 87))  {letter = "i";};
+     if ((x > 87) && (x <= 99))  {letter = "o";};
+     if ((x > 99) && (x <= 104)) {letter = "u";};
+     if (x > 104)                {letter = "y";};
+     return letter;
+}
+
+string namegenerator::getV4()
+{
+// This is used in syllable pattern CVV, twice.
+     int x;
+     x = rand() % (49) + 1;
+     string letter = "";
+     if (x <= 20)               {letter = "a";};
+     if ((x > 20) && (x <= 32)) {letter = "e";};
+     if ((x > 32) && (x <= 39)) {letter = "i";};
+     if ((x > 39) && (x <= 44)) {letter = "o";};
+     if ((x > 44) && (x <= 48)) {letter = "u";};
+     if (x > 48)                {letter = "y";};
+     return letter;
+}
+
+string namegenerator::getconsonantCV()
+{
+     // for only syllable CV
+     int x;
+     x = rand() % (131) + 1;
+     string letter = "";
+     if (x <= 26)                 {letter = "r";};
+     if ((x > 26) && (x <= 40))   {letter = "p";};
+     if ((x > 40) && (x <= 53))   {letter = "k";};
+     if ((x > 53) && (x <= 65))   {letter = "t";};
+     if ((x > 65) && (x <= 76))   {letter = "m";};
+     if ((x > 76) && (x <= 86))   {letter = "n";};
+     if ((x > 86) && (x <= 93))   {letter = "d";};
+     if ((x > 93) && (x <= 100))  {letter = "s";};
+     if ((x > 100) && (x <= 106)) {letter = "f";};
+     if ((x > 106) && (x <= 111)) {letter = "z";};
+     if ((x > 111) && (x <= 115)) {letter = "g";};
+     if ((x > 115) && (x <= 119)) {letter = "y";};
+     if ((x > 119) && (x <= 122)) {letter = "l";};
+     if ((x > 122) && (x <= 125)) {letter = "v";};
+     if ((x > 125) && (x <= 127)) {letter = "h";};
+     if ((x > 127) && (x <= 129)) {letter = "x";};
+     if ((x > 129) && (x <= 130)) {letter = "c";};
+     if (x > 130)                 {letter = "j";};
+     return letter;
+}
+
+string namegenerator::getconsonantCVC()
+{
+     // for both first and last consonant of this syllable type
+     int x;
+     x = rand() % (119) + 1;
+     string letter = "";
+     if (x <= 20)                 {letter = "r";};
+     if ((x > 20) && (x <= 34))   {letter = "t";};
+     if ((x > 34) && (x <= 44))   {letter = "k";};
+     if ((x > 44) && (x <= 54))   {letter = "m";};
+     if ((x > 54) && (x <= 64))   {letter = "n";};
+     if ((x > 64) && (x <= 74))   {letter = "s";};
+     if ((x > 74) && (x <= 82))   {letter = "p";};
+     if ((x > 82) && (x <= 87))   {letter = "l";};
+     if ((x > 87) && (x <= 92))   {letter = "v";};
+     if ((x > 92) && (x <= 96))   {letter = "d";};
+     if ((x > 96) && (x <= 100))  {letter = "z";};
+     if ((x > 100) && (x <= 104)) {letter = "h";};
+     if ((x > 104) && (x <= 108)) {letter = "x";};
+     if ((x > 108) && (x <= 111)) {letter = "g";};
+     if ((x > 111) && (x <= 114)) {letter = "y";};
+     if ((x > 114) && (x <= 116)) {letter = "f";};
+     if ((x > 116) && (x <= 118)) {letter = "c";};
+     if (x > 118)                 {letter = "j";};
+     return letter;
+}
+
+string namegenerator::getconsonant()
+{
+// Default : also VC, CVV, and last letter of CCVC.
+     int x;
+     x = rand() % (82) + 1;
+     string letter = "";
+     if (x <= 15)               {letter = "r";};
+     if ((x > 15) && (x <= 23)) {letter = "t";};
+     if ((x > 23) && (x <= 31)) {letter = "m";};
+     if ((x > 31) && (x <= 38)) {letter = "k";};
+     if ((x > 38) && (x <= 45)) {letter = "s";};
+     if ((x > 45) && (x <= 51)) {letter = "p";};
+     if ((x > 51) && (x <= 57)) {letter = "n";};
+     if ((x > 57) && (x <= 60)) {letter = "d";};
+     if ((x > 60) && (x <= 63)) {letter = "z";};
+     if ((x > 63) && (x <= 66)) {letter = "l";};
+     if ((x > 66) && (x <= 69)) {letter = "v";};
+     if ((x > 69) && (x <= 71)) {letter = "f";};
+     if ((x > 71) && (x <= 73)) {letter = "g";};
+     if ((x > 73) && (x <= 75)) {letter = "y";};
+     if ((x > 75) && (x <= 77)) {letter = "h";};
+     if ((x > 77) && (x <= 79)) {letter = "x";};
+     if ((x > 79) && (x <= 80)) {letter = "c";};
+     if ((x > 80) && (x <= 81)) {letter = "j";};
+     if  (x > 81)               {letter = "q";};
+     return letter;
+}
+
+string namegenerator::getclusteroftwo()
+{
+// CC
+// Note : If you rename this function to "clusterof2()", you get very strange results.
+// Still compiles fine though, and produces names!  Try outputting just getclusterof2() a bunch of times.  Fun for the whole family.
+     int x = 0;
+     // Get first letter
+     x = rand() % (44) + 1;
+     string letter = "";
+     string letter2 = "";
+     if (x <= 15)               {letter = "t";};
+     if ((x > 15) && (x <= 22)) {letter = "k";};
+     if ((x > 22) && (x <= 28)) {letter = "s";};
+     if ((x > 28) && (x <= 32)) {letter = "p";};
+     if ((x > 32) && (x <= 35)) {letter = "c";};
+     if ((x > 35) && (x <= 37)) {letter = "d";};
+     if ((x > 37) && (x <= 39)) {letter = "g";};
+     if ((x > 39) && (x <= 41)) {letter = "f";};
+     if ((x > 41) && (x <= 42)) {letter = "b";};
+     if ((x > 42) && (x <= 43)) {letter = "m";};
+     if (x > 43)                {letter = "n";};
+     // If the first letter was a stop...
+     if ((letter == "t") || (letter == "k") || (letter == "p") || (letter == "c") || (letter == "d") || (letter == "g") || (letter == "b") || (letter == "f")) {
+        x = rand() % (21) + 1;
+        if (x <= 12)               {letter2 = letter + "r";};
+        if ((x > 12) && (x <= 16)) {letter2 = letter + "l";};
+        if ((x > 16) && (x <= 19)) {letter2 = letter + "h";};
+        if ((x > 19) && (x <= 20)) {letter2 = letter + "y";};
+        if (x > 20)                {letter2 = letter + "j";};
+        }
+     // If the first letter was S...
+     if (letter == "s") {
+        x = rand() % (35) + 1;
+        if (x <= 15)               {letter2 = letter + "t";};
+        if ((x > 15) && (x <= 21)) {letter2 = letter + "k";};
+        if ((x > 21) && (x <= 25)) {letter2 = letter + "p";};
+        if ((x > 25) && (x <= 28)) {letter2 = letter + "c";};
+        if (x > 28)                {letter2 = letter + "h";};
+        }
+     // If the first letter was M or N
+     if ((letter == "m") || (letter == "n")) {letter2 = letter + "y";};
+
+     return letter2;
+}
+
+void namegenerator::UpdateFinalName()
+{
+     finalname.text =      trollname[0].text + trollname[1].text + trollname[2].text + trollname[3].text + trollname[4].text + trollname[5].text;
+     finalname.structure = trollname[0].structure + trollname[1].structure + trollname[2].structure + trollname[3].structure + trollname[4].structure + trollname[5].structure;
+     finalname.numsyl =    trollname[0].numsyl + trollname[1].numsyl + trollname[2].numsyl + trollname[3].numsyl + trollname[4].numsyl + trollname[5].numsyl;
+     finalname.length =    trollname[0].length + trollname[1].length + trollname[2].length + trollname[3].length + trollname[4].length + trollname[5].length;
+}
+
+void namegenerator::clearnames()
+{
+        // ...figure out how to make this work with a for loop.
+        // Yes, I tried, yes, it didn't work.
+            trollname[0].length = 0;
+            trollname[0].numsyl = 0;
+            trollname[0].structure = "";
+            trollname[0].text = "";
+            trollname[1].length = 0;
+            trollname[1].numsyl = 0;
+            trollname[1].structure = "";
+            trollname[1].text = "";
+            trollname[2].length = 0;
+            trollname[2].numsyl = 0;
+            trollname[2].structure = "";
+            trollname[2].text = "";
+            trollname[3].length = 0;
+            trollname[3].numsyl = 0;
+            trollname[3].structure = "";
+            trollname[3].text = "";
+            trollname[4].length = 0;
+            trollname[4].numsyl = 0;
+            trollname[4].structure = "";
+            trollname[4].text = "";
+            trollname[5].length = 0;
+            trollname[5].numsyl = 0;
+            trollname[5].structure = "";
+            trollname[5].text = "";
+
+            finalname.length = 0;
+            finalname.numsyl = 0;
+            finalname.structure = "";
+            finalname.text = "";
+}
+
+
+string namegenerator::makename()
+{
+        int nameOK = 0;
+        int testspassed = 0;
+
+        while (nameOK == 0) {
+
+        // Clear the working and output variables
+        clearnames();
+
+// Loop:  Constructing the initial name, until length = 6
+        while (finalname.length < 6) {
+            // Acquire a syllable structure from a subroutine.
+            // Note: Number of syllables starts counting at 1.  The index of an array starts at 0.
+            //       Number of syllables is thus one greater than the index of the last syllable entered.
+            //       Number of syllables is thus always equal to the /first empty/ array index.
+            trollname[finalname.numsyl].structure = getsyllablestructure();
+            // Now that we know what the syllable structure is,
+            // Randomly Generate the syllable's text and populate sympathetic variables
+            if (trollname[finalname.numsyl].structure == "V")    {
+                   trollname[finalname.numsyl].text = getV1();
+                   trollname[finalname.numsyl].length = 1;
+                   trollname[finalname.numsyl].numsyl = 1;
+                   };
+            if (trollname[finalname.numsyl].structure == "VC")   {
+                   trollname[finalname.numsyl].text = getV1() + getconsonant();
+                   trollname[finalname.numsyl].length = 2;
+                   trollname[finalname.numsyl].numsyl = 1;
+                   };
+            if (trollname[finalname.numsyl].structure == "CV")   {
+                   trollname[finalname.numsyl].text = getconsonantCV() + getV2();
+                   trollname[finalname.numsyl].length = 2;
+                   trollname[finalname.numsyl].numsyl = 1;
+                   };
+            if (trollname[finalname.numsyl].structure == "CVC")  {
+                   trollname[finalname.numsyl].text = getconsonantCVC() + getV3() + getconsonantCVC();
+                   trollname[finalname.numsyl].length = 3;
+                   trollname[finalname.numsyl].numsyl = 1;
+                   };
+            if (trollname[finalname.numsyl].structure == "CVV")  {
+                   trollname[finalname.numsyl].text = getconsonant() + getV4() + getV4();
+                   trollname[finalname.numsyl].length = 3;
+                   trollname[finalname.numsyl].numsyl = 1;
+                   };
+            if (trollname[finalname.numsyl].structure == "CCVC") {
+                   trollname[finalname.numsyl].text = getclusteroftwo() + getV1() + getconsonant();
+                   trollname[finalname.numsyl].length = 4;
+                   trollname[finalname.numsyl].numsyl = 1;
+                   };
+            UpdateFinalName();  // Now update everything to see if the loop is done
+            } // name is now 6 letters long.  finalname.length !< 6
+
+            // QUALITY ASSESSMENT AREA: F I X S H I T T Y
+            // Perform quality tests and fixes within this loop.
+            // In honor of the original basic version of the program, I dub the loop "Fixshitty".
+            testspassed = 0;
+
+            // test 1:  six letters names only
+            if (finalname.length == 6) {testspassed = testspassed + 1;}; // Expected tests passed : 1
+
+            // test 2: check and rule out triple consonants
+            // for each triple consonant found, subtract 1 from tests passed.
+            if ((trollname[0].structure == "C") and (trollname[1].structure == "C") and (trollname[2].structure == "C")) {testspassed = testspassed - 1;};
+            if ((trollname[1].structure == "C") and (trollname[2].structure == "C") and (trollname[3].structure == "C")) {testspassed = testspassed - 1;};
+            if ((trollname[2].structure == "C") and (trollname[3].structure == "C") and (trollname[4].structure == "C")) {testspassed = testspassed - 1;};
+            if ((trollname[3].structure == "C") and (trollname[4].structure == "C") and (trollname[5].structure == "C")) {testspassed = testspassed - 1;};
+            testspassed = testspassed+1; // add one to tests passed. Expected value : 2
+                                         // If there any triple consonants, it will 0 out.
+            // test 3: check and fix triple vowels
+            if ((trollname[0].structure == "V") and (trollname[1].structure == "V") and (trollname[2].structure == "V")) {testspassed = testspassed - 1;};
+            if ((trollname[1].structure == "V") and (trollname[2].structure == "V") and (trollname[3].structure == "V")) {testspassed = testspassed - 1;};
+            if ((trollname[2].structure == "V") and (trollname[3].structure == "V") and (trollname[4].structure == "V")) {testspassed = testspassed - 1;};
+            if ((trollname[3].structure == "V") and (trollname[4].structure == "V") and (trollname[5].structure == "V")) {testspassed = testspassed - 1;};
+            testspassed = testspassed+1; // Same as consonant loop. Expected value: 3
+
+            // test 4:  Q must be followed by U, and then another vowel.
+
+            if (testspassed != 3) {clearnames();};
+            //if (testspassed != 3) {finalname.text = "HUSSIE"; nameOK=1;}; // Verify that tests are catching problems
+            if (testspassed == 3) {nameOK = 1;};
+            } // nameOK = 1 now.  Quality tests have passed.
+
+    // capitalize first letter
+    //trollname[0].text.at(0) = putchar (toupper(trollname[0].text.at(0)));
+    // This doubles the first letter... ?
+
+    return finalname.text;
+}
+
+
+int namegenerator::TypicalityFunction(int a)
+{
+    if (a>typicality+5) {a = a - typicality;};
+    return a;
+}
+
+#endif
+

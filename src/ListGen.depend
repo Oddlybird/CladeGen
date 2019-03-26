@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1447569980 source:c:\wirritsaphora\`programs\coding\mine\listgen\main.cpp
+	<cstdlib>
+	<iostream>
+	<stdlib.h>
+	<string>
+	<sstream>
+	<ctime>
+	"ListpackOne.h"
+
+1447570037 c:\wirritsaphora\`programs\coding\mine\listgen\listpackone.h
+
+1447625530 source:c:\wirritsaphora\`programs\coding\mine\sburbgenc\main.cpp
+	<cstdlib>
+	<iostream>
+	<stdlib.h>
+	<string>
+	<sstream>
+	<ctime>
+	"Listpack-Land.h"
+	"Listpack-Titles1.h"
+	"Listpack-Titles2.h"
+	"Listpack-Caste.h"
+	"namegen.h"
+
+1447570885 c:\wirritsaphora\`programs\coding\mine\sburbgenc\listpackone.h
+
+1447576732 c:\wirritsaphora\`programs\coding\mine\sburbgenc\listpack-land.h
+
+1447573158 c:\wirritsaphora\`programs\coding\mine\sburbgenc\listpack-titles.h
+
+1447575038 c:\wirritsaphora\`programs\coding\mine\sburbgenc\listpack-titles1.h
+
+1447575038 c:\wirritsaphora\`programs\coding\mine\sburbgenc\listpack-titles2.h
+
+1447574605 c:\wirritsaphora\`programs\coding\mine\sburbgenc\listpack-caste.h
+
+1447629288 c:\wirritsaphora\`programs\coding\mine\sburbgenc\namegen.h
+	<cstdlib>
+	<iostream>
+	<stdlib.h>
+	<string>
+	<sstream>
+	<stdio.h>
+	<ctype.h>
+

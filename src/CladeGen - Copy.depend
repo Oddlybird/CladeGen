@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1448445425 source:c:\wirritsaphora\`programs\coding\mine\cladegen\main.cpp
+	"includes.h"
+
+1448444767 c:\wirritsaphora\`programs\coding\mine\cladegen\listpack-caste.h
+
+1448444906 c:\wirritsaphora\`programs\coding\mine\cladegen\namegen.h
+	"includes.h"
+
+1447809759 c:\wirritsaphora\`programs\coding\mine\cladegen\quadgen.h
+
+1447923558 c:\wirritsaphora\`programs\coding\mine\cladegen\listpack-interests.h
+
+1448363822 c:\wirritsaphora\`programs\coding\mine\cladegen\listpack-strife.h
+
+1448444905 c:\wirritsaphora\`programs\coding\mine\cladegen\listpack-handle1.h
+
+1448444906 c:\wirritsaphora\`programs\coding\mine\cladegen\listpack-handle2.h
+
+1448445507 c:\wirritsaphora\`programs\coding\mine\cladegen\includes.h
+	<cstdlib>
+	<iostream>
+	<stdlib.h>
+	<string>
+	<sstream>
+	<ctime>
+	<stdio.h>
+	<ctype.h>
+	"namegen.h"
+	"Listpack-Caste.h"
+	"Listpack-Interests.h"
+	"Listpack-Strife.h"
+	"Listpack-Handles.h"
+
+1448445507 c:\wirritsaphora\`programs\coding\mine\cladegen\listpack-handles.h
+	"Listpack-Handle1.h"
+	"Listpack-Handle2.h"
+

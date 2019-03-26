@@ -1,0 +1,39 @@
+using namespace std;
+#include <cstdlib>
+
+
+string gethandle11()
+{
+    int x;
+    string handle1, initial1 = "";
+    x = rand() % (26) + 1;
+
+    if (x==1) {initial1 = "A"; handle1 = gethandle1A();};
+    if (x==2) {initial1 = "B"; handle1 = gethandle1B();};
+    if (x==3) {initial1 = "C"; handle1 = gethandle1C();};
+    if (x==4) {initial1 = "D"; handle1 = gethandle1D();};
+    if (x==5) {initial1 = "E"; handle1 = gethandle1E();};
+    if (x==6) {initial1 = "F"; handle1 = gethandle1F();};
+    if (x==7) {initial1 = "G"; handle1 = gethandle1G();};
+    if (x==8) {initial1 = "H"; handle1 = gethandle1H();};
+    if (x==9) {initial1 = "I"; handle1 = gethandle1I();};
+    if (x==10) {initial1 = "J"; handle1 = gethandle1J();};
+    if (x==11) {initial1 = "K"; handle1 = gethandle1K();};
+    if (x==12) {initial1 = "L"; handle1 = gethandle1L();};
+    if (x==13) {initial1 = "M"; handle1 = gethandle1M();};
+    if (x==14) {initial1 = "N"; handle1 = gethandle1N();};
+    if (x==15) {initial1 = "O"; handle1 = gethandle1O();};
+    if (x==16) {initial1 = "P"; handle1 = gethandle1P();};
+    if (x==17) {initial1 = "Q"; handle1 = gethandle1Q();};
+    if (x==18) {initial1 = "R"; handle1 = gethandle1R();};
+    if (x==19) {initial1 = "S"; handle1 = gethandle1S();};
+    if (x==20) {initial1 = "T"; handle1 = gethandle1T();};
+    if (x==21) {initial1 = "U"; handle1 = gethandle1U();};
+    if (x==22) {initial1 = "V"; handle1 = gethandle1V();};
+    if (x==23) {initial1 = "W"; handle1 = gethandle1W();};
+    if (x==24) {initial1 = "X"; handle1 = gethandle1X();};
+    if (x==25) {initial1 = "Y"; handle1 = gethandle1Y();};
+    if (x==26) {initial1 = "Z"; handle1 = gethandle1Z();};
+
+    return handle1;
+}
